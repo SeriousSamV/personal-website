@@ -18,7 +18,10 @@ export async function GET() {
       // Remove the base URL prefix since SITE.website already includes it
       // Escape special regex characters in baseUrl
       const escapedBaseUrl = baseUrl.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-      const relativePath = pathWithBase.replace(new RegExp(`^${escapedBaseUrl}`), "");
+      const relativePath = pathWithBase.replace(
+        new RegExp(`^${escapedBaseUrl}`),
+        ""
+      );
       // Construct absolute URL
       const absoluteUrl = new URL(relativePath, SITE.website).href;
       return {
